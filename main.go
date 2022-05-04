@@ -41,15 +41,16 @@ import (
 )
 
 const (
-	lastTimeInput      = "lastTime"
-	labelsInput        = "labels"
-	repoTokenInput     = "repo-token"
-	feedInput          = "feed"
-	prefixInput        = "prefix"
-	aggregateInput     = "aggregate"
-	dryRunInput        = "dry-run"
-	titleFilterInput   = "titleFilter"
-	contentFilterInput = "contentFilter"
+	lastTimeInput             = "lastTime"
+	labelsInput               = "labels"
+	repoTokenInput            = "repo-token"
+	feedInput                 = "feed"
+	prefixInput               = "prefix"
+	aggregateInput            = "aggregate"
+	dryRunInput               = "dry-run"
+	titleFilterInput          = "titleFilter"
+	titleInclusionFilterInput = "titleInclusionFilter"
+	contentFilterInput        = "contentFilter"
 )
 
 func main() {
@@ -145,6 +146,14 @@ func main() {
 			matched, _ := regexp.MatchString(filter, item.Title)
 			if matched {
 				a.Debugf("No issue created due to title filter")
+				continue
+			}
+		}
+		filter := a.GetInput(titleInclusionFilterInput)
+		if filter != "" {
+			matched, _ := regexp.MatchString(filter, item.Title)
+			if ! matched {
+				a.Debugf("No issue created due to title inclusion filter")
 				continue
 			}
 		}

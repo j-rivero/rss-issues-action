@@ -40,6 +40,11 @@ Limit size of issue content
 
 Don't create an issue if the title matches the specified regular expression ([go regular expression syntax](https://github.com/google/re2/wiki/Syntax))
 
+### `titleInclusionFilter`
+
+Create an issue only if the title matches the specified regular expression ([go regular expression syntax](https://github.com/google/re2/wiki/Syntax))
+
+
 ### `contentFilter`
 
 Don't create an issue if the content matches the specified regular expression ([go regular expression syntax](https://github.com/google/re2/wiki/Syntax))

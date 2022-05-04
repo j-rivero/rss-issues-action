@@ -33,6 +33,9 @@ inputs:
   titleFilter:
     description: "Filter out entries whose titles match this regex"
     required: false
+  titleInclusionFilter:
+    description: "Include only entries whose titles match this regex"
+    required: false
   contentFilter:
     description: "Filter out entries whose contents match this regex"
     required: false
