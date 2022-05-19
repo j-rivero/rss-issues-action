@@ -12,6 +12,7 @@ RUN apt-get -qq update && \
 WORKDIR /src
 COPY . .
 
+RUN go mod tidy
 RUN go build \
   -a \
   -ldflags "-s -w -extldflags '-static'" \
