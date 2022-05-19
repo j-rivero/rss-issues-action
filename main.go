@@ -149,10 +149,10 @@ func main() {
 				continue
 			}
 		}
-		filter := a.GetInput(titleInclusionFilterInput)
-		a.Debugf("titleInclusionFilterInput: %s", filter)
-		if filter != "" {
-			matched, _ := regexp.MatchString(filter, item.Title)
+		filterInclusion := a.GetInput(titleInclusionFilterInput)
+		a.Debugf("titleInclusionFilterInput: %s", filterInclusion)
+		if filterInclusion != "" {
+			matched, _ := regexp.MatchString(filterInclusion, item.Title)
 			a.Debugf("titleInclusionFilterInput matched: %s", matched)
 			if ! matched {
 				a.Debugf("No issue created due to title inclusion filter")
